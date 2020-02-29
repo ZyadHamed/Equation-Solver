@@ -11,10 +11,10 @@ using System.Text.RegularExpressions;
 
 namespace EquationSolverNew
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
         
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -216,7 +216,27 @@ namespace EquationSolverNew
                 double solution2;
                 string[] splitted2 = theequation[1].Split('x');
 
-                 
+                void descrimnant()
+                {
+                    if ((Math.Pow(b, 2)) - 4 * a * c > 0)
+                    {
+                        solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                    }
+                    else if ((Math.Pow(b, 2)) - 4 * a * c == 0)
+                    {
+                        solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        MessageBox.Show("X = " + solution1.ToString(), "The Result!", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
+                        MessageBox.Show("X1 = " + solution1.ToString() + "i" + "\n" + "X2 = " + solution2.ToString() + "i", "The Result!", MessageBoxButtons.OK);
+                    }
+                }
 
                 string check = txtTheEquation2.Text;
                 char equal = '=';
@@ -344,9 +364,7 @@ namespace EquationSolverNew
                                 b = 0;
                                 c = FractionToDouble(theequation[1]) * -1;
 
-                                solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                                descrimnant();
                             }
                             else if(splitted2.Length != 1)
                             {
@@ -375,9 +393,7 @@ namespace EquationSolverNew
                                     {
                                         c = float.Parse(splitted[1]);
                                     }
-                                    solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                    solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                    MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                                    descrimnant();
                                 }
                                 //End Check
 
@@ -407,9 +423,7 @@ namespace EquationSolverNew
 
 
 
-                                        solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                        solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                        MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                                        descrimnant();
                                     }
                                     else
                                     {
@@ -435,9 +449,7 @@ namespace EquationSolverNew
 
                                         //End CheckS
 
-                                        solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                        solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                                        MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                                        descrimnant();
                                     }
 
 
@@ -472,9 +484,7 @@ namespace EquationSolverNew
 
                             //End CheckS
 
-                            solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                            descrimnant();
 
                         }
 
@@ -505,9 +515,7 @@ namespace EquationSolverNew
                             //End CheckS
 
 
-                            solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                            descrimnant();
                         }
 
                         //End Case3
@@ -538,9 +546,7 @@ namespace EquationSolverNew
                                 MessageBox.Show("Error2");
                             }
 
-                            solution1 = (-b + Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            solution2 = (-b - Math.Sqrt(Math.Abs(b * b - 4 * (a * c)))) / (2 * a);
-                            MessageBox.Show("X1 = " + solution1.ToString() + "\n" + "X2 = " + solution2.ToString(), "The Result!", MessageBoxButtons.OK);
+                            descrimnant();
 
                         }
 
